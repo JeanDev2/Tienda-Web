@@ -1,0 +1,8 @@
+@import './aside.css';
+@import './main.css';
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    background-color: var(--clr-main);
+}

@@ -1,0 +1,13 @@
+@import './boton-menu.css';
+
+.menu-lista {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+
+.bi-hand-index-thumb-fill,
+.bi-hand-index-thumb {
+    transform: rotateZ(90deg); 
+}

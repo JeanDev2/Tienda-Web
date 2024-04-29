@@ -1,0 +1,15 @@
+@import './productos.css';
+@import './carrito.css';
+
+main {
+    background-color: var(--clr-white);
+    margin: 1rem;
+    margin-inline-start: 0;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.titulo-principal {
+    color: var(--clr-main);
+    margin-block-end: 2rem;
+}

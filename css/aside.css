@@ -1,0 +1,15 @@
+@import './logo.css';
+@import './navegacion.css';
+@import './footer.css';
+
+aside {
+    padding: 2rem;
+    padding-inline-end: 0;
+    color: var(--clr-white);
+    position: sticky;
+    top: 0;
+    block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
