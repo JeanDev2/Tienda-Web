@@ -1,5 +1,5 @@
 // PRODUCTOS
-const productos = [
+export const productos = [
     // Abrigos
     {
         id: "abrigo-01",

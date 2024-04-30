@@ -1,0 +1,9 @@
+@import './logo.css';
+
+.header-mobile {
+    display: none;
+}
+
+.close-menu {
+    display: none;
+}

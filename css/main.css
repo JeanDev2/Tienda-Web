@@ -1,6 +1,8 @@
 @import './productos.css';
 @import './carrito.css';
 
+
+
 main {
     background-color: var(--clr-white);
     margin: 1rem;

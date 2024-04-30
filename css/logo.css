@@ -1,4 +1,5 @@
-.logo {
+.logo a{
     font-weight: 400;
     font-size: 1.5rem;
+    color: var(--clr-white);
 }

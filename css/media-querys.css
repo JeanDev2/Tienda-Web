@@ -1,0 +1,126 @@
+@media screen and (max-width: 850px) {
+    .contenedor-productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .contenedor-productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 600px){
+
+    .wrapper {
+        /* grid-template-columns: 1fr; */
+        min-block-size: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    aside {
+        position: fixed;
+        z-index: 10;
+        background-color: var(--clr-main);
+        left: 0;
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .75);
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+    }
+
+    .aside-visible {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .boton-menu.active::before,
+    .boton-menu.active::after {
+        display: none;
+    }
+
+    main {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    .contenedor-productos {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header-mobile {
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-mobile .logo {
+        color: var(--clr-gray);
+    }
+
+    .open-menu,
+    .close-menu {
+        background-color:  transparent;
+        color: var(--clr-gray);
+        border: 0;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .close-menu {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .carrito-producto {
+        gap: .5rem;
+        padding: .5rem;
+
+    }
+
+    .carrito-producto-subtotal {
+        display: none;
+    }
+
+    .carrito-producto-titulo h3 {
+        font-size: .9rem;
+    }
+
+    .carrito-producto-cantidad p,
+    .carrito-producto-precio p {
+        text-align: center;
+    }
+
+    .carrito-producto-eliminar {
+        font-size: 1.2rem;
+    }
+
+    .carrito-acciones {
+        flex-direction: column;
+        gap: 1rem;
+        inline-size: 100%;
+    }
+    
+    .carrito-acciones-vaciar,
+    .carrito-acciones-derecha {
+        inline-size: 100%;
+    }
+
+    .carrito-acciones-comprar,
+    .carrito-acciones-total {
+        inline-size: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contenedor-productos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

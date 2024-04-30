@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 @import './wrapper.css';
-
+@import './media-querys.css';
 :root {
     --clr-main: #4b33a8;
     --clr-main-light: #9f8bee;
