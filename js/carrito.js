@@ -83,14 +83,64 @@ function eliminarItemCarrito(e) {
     cargarProductosCarrito()
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosCarrito))
+
+    Toastify({
+        text: "Producto eliminado",
+        duration: 3000,
+        // destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4b33a8, #9f8bee)",
+          borderRadius: "2rem",
+          fontSize: ".8rem"
+        },
+        offset: {
+            x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: "1.5rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 }
 
 botonVaciar.addEventListener('click', vaciarCarrito)
 
 function vaciarCarrito() {
-    productosCarrito.length = 0;
-    localStorage.setItem('productos-en-carrito', JSON.stringify(productosCarrito))
-    cargarProductosCarrito();
+    const totalCalculado = productosCarrito.reduce((acc,producto) => acc + producto.cantidad, 0)
+
+    Swal.fire({
+        title: "<strong>¿Estas seguro?</strong>",
+        icon: "question",
+        html: `
+          Se van a borrar ${totalCalculado} productos
+        `,
+        showCloseButton: true,
+        showCancelButton: true,
+        focusConfirm: false,
+        confirmButtonText: `
+          <i class="fa fa-thumbs-up"></i> Si
+        `,
+        cancelButtonText: `
+          <i class="fa fa-thumbs-down"></i> No
+        `
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+        Swal.fire("Carrito Vaciado", "", "error");
+
+        productosCarrito.length = 0;
+        localStorage.setItem('productos-en-carrito', JSON.stringify(productosCarrito))
+        cargarProductosCarrito();
+        
+        } else if (result.isDenied) {
+        Swal.fire("Changes are not saved", "", "info");
+        }
+      });
+
+
 }
 
 

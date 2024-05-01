@@ -1,4 +1,11 @@
-import { productos } from './data.js';
+let productos = [];
+
+fetch("./js/producto.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 const contenedorProductos = document.querySelector('#contenedor-productos');
 const botonesCategorias = document.querySelectorAll('.boton-categoria');
@@ -81,6 +88,27 @@ export function agregarCarrito(e) {
     actulizarNumerito()
 
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosCarrito))
+
+    Toastify({
+        text: "Agregado al carrito",
+        duration: 3000,
+        // destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #4b33a8, #9f8bee)",
+          borderRadius: "2rem",
+          fontSize: ".8rem"
+        },
+        offset: {
+            x: "1.5rem", // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+            y: "1.5rem" // vertical axis - can be a number or a string indicating unity. eg: '2em'
+          },
+        onClick: function(){} // Callback after click
+      }).showToast();
 }
 
 function actulizarNumerito() {
